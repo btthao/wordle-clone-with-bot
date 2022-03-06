@@ -1,25 +1,40 @@
-import React from 'react'
-import { BsQuestionCircle } from 'react-icons/bs';
-import { BiBarChartAlt2 } from 'react-icons/bi';
+import React, { useEffect, useState } from 'react';
 import { AiFillSetting } from 'react-icons/ai';
+import { FaRobot } from 'react-icons/fa';
+import { useStateContext } from '../context';
+import Modal from './Modal';
 
 
 const Header: React.FC = () => {
+    const [modalOpen, setModalOpen] = useState<boolean>(false)
+    const [closeModal, setCloseModal] = useState(false)
+    const [{ darkTheme }, _] = useStateContext()
+    const close = () => {
+        setCloseModal(true)
+        setTimeout(()=>{
+            setModalOpen(false)
+            setCloseModal(false)
+        }, 150)
+    }
+    
+    // color theme
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", darkTheme ? 'dark' : 'light')
+    }, [darkTheme])
+   
     return (
-        <header>
-            <button>
-                <BsQuestionCircle/>
-            </button>
-            <div className='title'>WORDLE CLONE</div>
-            <div>
+        <>
+            <header>
                 <button>
-                    <BiBarChartAlt2/>
+                    <FaRobot/>
                 </button>
-                <button>
+                <div className='title'>WORDLE CLONE</div>
+                <button onClick={() => setModalOpen(true)}>
                     <AiFillSetting/>
-                </button>
-            </div>
-        </header>
+                </button>  
+            </header>
+            {modalOpen && <Modal onClick={close} closing={closeModal}/>}
+        </>
     );
 }
 

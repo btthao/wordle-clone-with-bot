@@ -1,0 +1,108 @@
+.tile {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+    vertical-align: middle;
+    text-transform: uppercase;
+    user-select: none;
+    color: var(--tile-text-color);
+}
+
+.tile::before {
+    content: '';
+    display: inline-block;
+    padding-bottom: 100%;
+}
+  
+.tile[data-state='EMPTY'] {
+    border: 2px solid var(--color-tone-4);
+}
+  
+.tile[data-state='TBD'] {
+    border: 2px solid var(--color-tone-3);
+    color: var(--color-tone-1);
+}
+  
+.tile[data-state='CORRECT'] {
+    background-color: var(--color-correct);
+}
+  
+.tile[data-state='PRESENT'] {
+    background-color: var(--color-present);
+}
+  
+.tile[data-state='ABSENT'] {
+    background-color: var(--color-absent);
+}
+  
+.tile[data-animation='pop-in'] {
+    animation: PopIn 100ms;
+}
+  
+.tile[data-animation='flip'] {
+    animation: Flip 500ms ease-in;
+}
+  
+.tile.win {
+    animation-name: Bounce;
+    animation-duration: 1000ms;
+}
+  
+ 
+@keyframes PopIn{
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    
+    40%{
+      transform: scale(1.1);
+      opacity:1;
+    }
+}
+  
+@keyframes Flip{
+    0% {
+      transform: rotateX(0);
+    }
+    
+    50%{
+      transform: rotateX(-90deg);
+    }
+    
+    100%{
+      transform: rotateX(0);
+    }
+}
+
+@keyframes Bounce {
+  0%, 20% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+  80% {
+    transform: translateY(2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .tile {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}

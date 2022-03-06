@@ -1,0 +1,65 @@
+#keyboard{
+    padding: 0 8px;
+    width: 100%;
+    user-select: none;
+}
+  
+#keyboard .row{
+    display: flex;
+    width: 100%;
+    margin: 0 auto 8px;
+    touch-action: manipulation;
+}
+  
+#keyboard button{
+    font-family: inherit;
+    font-weight: bold;
+    border: 0;
+    padding: 0;
+    margin: 0 6px 0 0;
+    height: 58px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--key-bg);
+    color: var(--key-text-color);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+  
+#keyboard button:focus{
+    outline:none;
+}
+
+  
+#keyboard .row button:last-of-type {
+    margin: 0 !important;
+}
+  
+.half{
+    flex: 0.5;
+}
+  
+.one-half{
+    flex: 1.5 !important;
+}
+  
+button[data-state='CORRECT'] {
+    background-color: var(--key-bg-correct) !important;
+    color: var(--key-evaluated-text-color) !important;
+}
+  
+button[data-state='PRESENT'] {
+    background-color: var(--key-bg-present) !important;
+    color: var(--key-evaluated-text-color) !important;
+}
+  
+button[data-state='ABSENT'] {
+    background-color: var(--key-bg-absent) !important;
+    color: var(--key-evaluated-text-color) !important;
+}
+  
+  
