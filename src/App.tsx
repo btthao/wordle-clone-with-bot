@@ -72,6 +72,7 @@ const App: React.FC = () => {
     const currentRow = gameState.rowIndex
     let newGuesses = null
     let newTempEvaluations = null
+    let isValid: string | boolean = false
     
     if (regex.test(value)) {
       // if valid char and tile is empty
@@ -100,7 +101,7 @@ const App: React.FC = () => {
       
     } else if (value === 'Enter'){
       
-      const isValid = validateGuess(guesses[currentRow].join(''), gameState.boardState, gameState.evaluations, hardMode)
+      isValid = validateGuess(guesses[currentRow].join(''), gameState.boardState, gameState.evaluations, hardMode)
       
       if (isValid !== true){
         let newRowStatus = produce(rowStatus, copy => {
@@ -158,8 +159,11 @@ const App: React.FC = () => {
     if (newTempEvaluations){
       setTempEvaluations(newTempEvaluations)
     }
+    
+    setTimeout(() => {
+      setAnimating(false)
+    }, isValid === true ? (wordLength-1)*350 + flipTime : 0)
 
-    setAnimating(false)
     
   }, [animating, currentTile, dispatch, gameState.boardState, gameState.evaluations, gameState.gameStatus, gameState.rowIndex, gameState.solution, guesses, hardMode, rowStatus, tempEvaluations])
   

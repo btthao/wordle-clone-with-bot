@@ -81,7 +81,8 @@ header button{
   width: fit-content;
   padding:15px 20px;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
   max-width: 98%;
 }
 
@@ -156,4 +157,23 @@ header button{
   #game-board{
     width: 350px;
   }
+}
+
+.bot-popover, .bot-popover-arrow{
+  background: var(--color-tone-6) !important;
+  border-color: var(--color-tone-4) !important;
+}
+
+.bot-popover-arrow{
+  box-shadow: -1px -1px 1px 0 var(--color-tone-4) !important;
+}
+
+.bot-btn{
+  background: var(--color-correct);
+  font-size: 15px;
+  color: var(--white);
+  padding: 4px 10px;
+  margin: 13px 0 6px;
+  border-radius: 5px;
+  font-weight: 500;
 }

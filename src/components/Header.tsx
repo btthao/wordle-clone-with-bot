@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AiFillSetting } from 'react-icons/ai';
-import { FaRobot } from 'react-icons/fa';
 import { useStateContext } from '../context';
+import HelpBot from './HelpBot';
 import Modal from './Modal';
 
 
@@ -25,9 +25,7 @@ const Header: React.FC = () => {
     return (
         <>
             <header>
-                <button>
-                    <FaRobot/>
-                </button>
+                <HelpBot/>
                 <div className='title'>WORDLE CLONE</div>
                 <button onClick={() => setModalOpen(true)}>
                     <AiFillSetting/>

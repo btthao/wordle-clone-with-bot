@@ -59,7 +59,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--color-tone-7);
+  background: var(--color-tone-7) !important;
 }
 
 a {
