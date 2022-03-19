@@ -52,7 +52,8 @@ header button{
 }
 
 #game-board{
-  width: 270px;
+  width: 90%;
+  min-width: 270px;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 5px;
